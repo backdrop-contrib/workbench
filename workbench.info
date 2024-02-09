@@ -5,3 +5,5 @@ backdrop = 1.x
 type = module
 configure = admin/config/workbench/settings
 dependencies[] = views
+tags[] = Content
+tags[] = Editors
