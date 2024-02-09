@@ -1,0 +1,337 @@
+{
+    "_config_name": "views.view.workbench_edited",
+    "name": "workbench_edited",
+    "description": "Lists content edited by the user.",
+    "tag": "Workbench",
+    "disabled": false,
+    "base_table": "node_revision",
+    "human_name": "Workbench: Edits by user",
+    "core": 7,
+    "display": {
+        "default": {
+            "display_title": "Defaults",
+            "display_plugin": "default",
+            "display_options": {
+                "query": {
+                    "type": "views_query",
+                    "options": {
+                        "query_comment": false
+                    }
+                },
+                "title": "My Edits",
+                "use_more_always": true,
+                "use_more_text": "view all",
+                "access": {
+                    "type": "perm",
+                    "perm": "access workbench"
+                },
+                "cache": {
+                    "type": "none"
+                },
+                "exposed_form": {
+                    "type": "basic"
+                },
+                "pager": {
+                    "type": "full",
+                    "options": {
+                        "items_per_page": "25",
+                        "offset": "0",
+                        "id": "0",
+                        "expose": {
+                            "items_per_page": true,
+                            "items_per_page_options": "10, 25, 50, 100, 200"
+                        }
+                    }
+                },
+                "style_plugin": "table",
+                "style_options": {
+                    "columns": {
+                        "nid": "nid",
+                        "title": "title",
+                        "type": "type",
+                        "status": "status",
+                        "timestamp": "timestamp",
+                        "edit_node": "edit_node",
+                        "is_published": "is_published"
+                    },
+                    "default": "timestamp",
+                    "info": {
+                        "nid": {
+                            "sortable": 0,
+                            "default_sort_order": "asc",
+                            "align": "",
+                            "separator": "",
+                            "empty_column": 0
+                        },
+                        "title": {
+                            "sortable": 1,
+                            "default_sort_order": "asc",
+                            "align": "",
+                            "separator": "",
+                            "empty_column": 0
+                        },
+                        "type": {
+                            "sortable": 1,
+                            "default_sort_order": "asc",
+                            "align": "",
+                            "separator": "",
+                            "empty_column": 0
+                        },
+                        "status": {
+                            "sortable": 1,
+                            "default_sort_order": "asc",
+                            "align": "",
+                            "separator": "",
+                            "empty_column": 0
+                        },
+                        "timestamp": {
+                            "sortable": 1,
+                            "default_sort_order": "desc",
+                            "align": "",
+                            "separator": "",
+                            "empty_column": 0
+                        },
+                        "edit_node": {
+                            "align": "",
+                            "separator": "",
+                            "empty_column": 0
+                        },
+                        "is_published": {
+                            "align": "",
+                            "separator": "",
+                            "empty_column": 0
+                        }
+                    }
+                },
+                "footer": {
+                    "area": {
+                        "id": "area",
+                        "table": "views",
+                        "field": "area",
+                        "empty": true,
+                        "content": "Edited something recently and it's not in this list? If a content type isn't revisioned and you didn't create it, it will not show up in this list when you edit it. You can find it in the 'Content I Can Edit' tab.",
+                        "format": "plain_text"
+                    }
+                },
+                "empty": {
+                    "area": {
+                        "id": "area",
+                        "table": "views",
+                        "field": "area",
+                        "content": "You haven't created or edited any content.",
+                        "format": "plain_text"
+                    }
+                },
+                "relationships": {
+                    "uid": {
+                        "id": "uid",
+                        "table": "node_revision",
+                        "field": "uid"
+                    },
+                    "vid": {
+                        "id": "vid",
+                        "table": "node_revision",
+                        "field": "vid"
+                    }
+                },
+                "fields": {
+                    "nid": {
+                        "id": "nid",
+                        "table": "node",
+                        "field": "nid",
+                        "relationship": "vid",
+                        "group_type": "count",
+                        "label": "",
+                        "exclude": true,
+                        "alter": {
+                            "word_boundary": false,
+                            "ellipsis": false
+                        },
+                        "element_label_colon": false
+                    },
+                    "title": {
+                        "id": "title",
+                        "table": "node_revision",
+                        "field": "title",
+                        "relationship": "vid",
+                        "link_to_node": true
+                    },
+                    "type": {
+                        "id": "type",
+                        "table": "node",
+                        "field": "type",
+                        "relationship": "vid",
+                        "alter": {
+                            "word_boundary": false,
+                            "ellipsis": false
+                        }
+                    },
+                    "status": {
+                        "id": "status",
+                        "table": "node",
+                        "field": "status",
+                        "relationship": "vid",
+                        "alter": {
+                            "word_boundary": false,
+                            "ellipsis": false
+                        },
+                        "not": 0
+                    },
+                    "timestamp": {
+                        "id": "timestamp",
+                        "table": "node_revision",
+                        "field": "timestamp",
+                        "label": "Last updated",
+                        "date_format": "time ago"
+                    },
+                    "edit_node": {
+                        "id": "edit_node",
+                        "table": "views_entity_node",
+                        "field": "edit_node",
+                        "relationship": "vid",
+                        "label": "Operations"
+                    }
+                },
+                "sorts": {
+                    "changed": {
+                        "id": "changed",
+                        "table": "node",
+                        "field": "changed",
+                        "relationship": "vid",
+                        "order": "DESC"
+                    }
+                },
+                "filters": {
+                    "uid_current": {
+                        "id": "uid_current",
+                        "table": "users",
+                        "field": "uid_current",
+                        "relationship": "uid",
+                        "value": "1",
+                        "group": 1
+                    },
+                    "title": {
+                        "id": "title",
+                        "table": "node_revision",
+                        "field": "title",
+                        "operator": "contains",
+                        "group": 1,
+                        "exposed": true,
+                        "expose": {
+                            "operator_id": "title_1_op",
+                            "label": "Title",
+                            "operator": "title_1_op",
+                            "identifier": "title",
+                            "remember": true
+                        }
+                    },
+                    "type": {
+                        "id": "type",
+                        "table": "node",
+                        "field": "type",
+                        "relationship": "vid",
+                        "group": 1,
+                        "exposed": true,
+                        "expose": {
+                            "label": "Type",
+                            "identifier": "type",
+                            "remember": true
+                        }
+                    },
+                    "status": {
+                        "id": "status",
+                        "table": "node",
+                        "field": "status",
+                        "relationship": "vid",
+                        "value": "All",
+                        "group": 1,
+                        "exposed": true,
+                        "expose": {
+                            "label": "Published",
+                            "identifier": "published",
+                            "remember": true
+                        }
+                    },
+                    "type_1": {
+                        "id": "type_1",
+                        "table": "node",
+                        "field": "type",
+                        "relationship": "vid",
+                        "operator": "not empty"
+                    }
+                }
+            }
+        },
+        "page_1": {
+            "display_title": "Page",
+            "display_plugin": "page",
+            "display_options": {
+                "query": {
+                    "type": "views_query",
+                    "options": []
+                },
+                "defaults": {
+                    "hide_admin_links": false
+                },
+                "path": "admin/workbench/content/edited",
+                "menu": {
+                    "type": "tab",
+                    "title": "My Edits",
+                    "weight": "1"
+                }
+            }
+        },
+        "block_1": {
+            "display_title": "Block",
+            "display_plugin": "block",
+            "display_options": {
+                "query": {
+                    "type": "views_query",
+                    "options": []
+                },
+                "defaults": {
+                    "hide_admin_links": false,
+                    "use_more": false,
+                    "pager": false,
+                    "header": false,
+                    "footer": false,
+                    "filter_groups": false,
+                    "filters": false
+                },
+                "use_more": true,
+                "pager": {
+                    "type": "some",
+                    "options": {
+                        "items_per_page": "5",
+                        "offset": "0"
+                    }
+                },
+                "header": {
+                    "area": {
+                        "id": "area",
+                        "table": "views",
+                        "field": "area",
+                        "content": "Five of the most recently updated pieces of content.",
+                        "format": "plain_text"
+                    }
+                },
+                "filters": {
+                    "uid_current": {
+                        "id": "uid_current",
+                        "table": "users",
+                        "field": "uid_current",
+                        "relationship": "uid",
+                        "value": "1"
+                    },
+                    "type": {
+                        "id": "type",
+                        "table": "node",
+                        "field": "type",
+                        "relationship": "vid",
+                        "operator": "not empty"
+                    }
+                }
+            }
+        }
+    }
+}

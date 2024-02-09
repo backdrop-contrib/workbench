@@ -1,0 +1,106 @@
+{
+    "_config_name": "views.view.workbench_current_user",
+    "name": "workbench_current_user",
+    "description": "Information about the current user.",
+    "tag": "Workbench",
+    "disabled": false,
+    "base_table": "users",
+    "human_name": "Workbench: Current user",
+    "core": 7,
+    "display": {
+        "default": {
+            "display_title": "Defaults",
+            "display_plugin": "default",
+            "display_options": {
+                "query": {
+                    "type": "views_query",
+                    "options": {
+                        "query_comment": false
+                    }
+                },
+                "use_more_always": false,
+                "access": {
+                    "type": "perm",
+                    "perm": "access workbench"
+                },
+                "cache": {
+                    "type": "none"
+                },
+                "exposed_form": {
+                    "type": "basic"
+                },
+                "pager": {
+                    "type": "none",
+                    "options": {
+                        "offset": "0"
+                    }
+                },
+                "style_plugin": "default",
+                "row_plugin": "fields",
+                "fields": {
+                    "uid": {
+                        "id": "uid",
+                        "table": "users",
+                        "field": "uid",
+                        "label": "",
+                        "exclude": true,
+                        "alter": {
+                            "word_boundary": false,
+                            "ellipsis": false
+                        },
+                        "link_to_user": false
+                    },
+                    "picture": {
+                        "id": "picture",
+                        "table": "users",
+                        "field": "picture",
+                        "label": "",
+                        "element_label_colon": false
+                    },
+                    "name": {
+                        "id": "name",
+                        "table": "users",
+                        "field": "name",
+                        "label": "",
+                        "alter": {
+                            "word_boundary": false,
+                            "ellipsis": false
+                        }
+                    },
+                    "edit_node": {
+                        "id": "edit_node",
+                        "table": "users",
+                        "field": "edit_node",
+                        "label": "",
+                        "alter": {
+                            "word_boundary": false,
+                            "ellipsis": false
+                        },
+                        "text": "edit my profile"
+                    }
+                },
+                "filters": {
+                    "uid_current": {
+                        "id": "uid_current",
+                        "table": "users",
+                        "field": "uid_current",
+                        "value": "1"
+                    }
+                }
+            }
+        },
+        "block_1": {
+            "display_title": "Block",
+            "display_plugin": "block",
+            "display_options": {
+                "query": {
+                    "type": "views_query",
+                    "options": []
+                },
+                "defaults": {
+                    "hide_admin_links": false
+                }
+            }
+        }
+    }
+}

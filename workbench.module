@@ -127,14 +127,7 @@ function workbench_block_view($delta = '') {
  * Implements hook_views_api().
  */
 function workbench_views_api() {
-  return array('api' => 2);
-}
-
-/**
- * Implements hook_views_default_views().
- */
-function workbench_views_default_views() {
-  return workbench_load_all_exports('workbench', 'views', 'view.inc', 'view');
+  return array('api' => 3.0);
 }
 
 /**
