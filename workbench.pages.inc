@@ -20,12 +20,14 @@ function workbench_content() {
   $output = array();
 
   // Allow other modules to add content here.
+
   $output['#attributes'] = array('class' => array('admin', 'my-workbench'));
   $output['#attached'] = array(
-    'css' => array(drupal_get_path('module', 'workbench') . '/css/workbench.my-workbench.css'),
+    'css' => array(backdrop_get_path('module', 'workbench') . '/css/workbench.my-workbench.css'),
   );
   $output['#theme'] = 'workbench_element';
   // This left column is given a width of 35% by workbench.myworkbench.css.
+
   $output['workbench_current_user'] = array(
     '#title' => t('My Profile'),
     '#view' => 'workbench_current_user',
@@ -34,6 +36,7 @@ function workbench_content() {
     '#theme' => 'workbench_element',
   );
   // This right column is given a width of 65% by workbench.myworkbench.css.
+
   $output['workbench_edited'] = array(
     '#view' => 'workbench_edited',
     '#view_display' => 'block_1',
@@ -43,21 +46,31 @@ function workbench_content() {
   $output['workbench_recent_content'] = array(
     '#view' => 'workbench_recent_content',
     '#view_display' => 'block_1',
-    '#attributes' => array('class' => array('clearfix'), 'style' => array('clear: both;')),
+    '#attributes' => array(
+      'class' => array('clearfix'),
+      'style' => array('clear: both;'),
+    ),
     '#theme' => 'workbench_element',
   );
 
   // Allow other modules to alter the default page.
-  drupal_alter('workbench_content', $output);
+
+  backdrop_alter('workbench_content', $output);
 
   // Transform the Views into markup.
+
   // @see views_embed_view()
+
   foreach (element_children($output) as $key) {
     if (isset($output[$key]['#view']) && $view = views_get_view($output[$key]['#view'])) {
-      $output[$key] += array('#markup' => '', '#view_display' => 'default');
+      $output[$key] += array(
+        '#markup' => '',
+        '#view_display' => 'default',
+      );
       $display_id = $output[$key]['#view_display'];
 
       // Build contextual links.
+
       if (module_exists('contextual') && module_exists('views_ui')) {
         $output[$key] += contextual_element_info();
         views_add_contextual_links($output[$key]['contextual_links'], 'block', $view, $display_id);
@@ -89,7 +102,8 @@ function workbench_create() {
   $output['workbench_create_default'] = _workbench_create();
 
   // Allow other modules to add content here.
-  drupal_alter('workbench_create', $output);
+
+  backdrop_alter('workbench_create', $output);
 
   return $output;
 }
@@ -109,6 +123,7 @@ function _workbench_create() {
 
   if (!empty($content)) {
     // Theme the arrray of content type creation links.
+
     $output['#markup'] .= theme('node_add_list', array('content' => $content));
   }
   else {
