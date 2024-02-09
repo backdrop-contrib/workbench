@@ -1,34 +1,25 @@
-/**
- * @file
- * README file for Workbench.
- */
-
-Workbench
+# Workbench
 A framework for simplified content management.
 
-CONTENTS
---------
+## Content
 
-1.  Introduction
-1.1   Use-case
-1.2   Examples
-1.3   Terminology
-2.  Installation
-3.  Permissions
-4.  Configuration
-5.  Using the module
-5.1  My Content
-5.2  Create Content
-6.  Troubleshooting
-7.  Developer notes
-7.1   API documentation
-7.2   Database schema
-7.3   Views integration
-8.  Feature roadmap
-
+1. Introduction
+   1. Use Case
+2. Installation
+3. Permissions
+4. Configuration
+5. Using the module
+   1. My Content
+   2. Create Content
+6. Troubleshooting
+7. Developer notes
+   1. API documentation
+   2. Database schema
+   3. Views integration
+8. Feature roadmap
 
 ----
-1.  Introduction
+## 1.  Introduction
 
 Workbench provides a simplified user interface and an API to integrate other
 Drupal modules.  Workbench on its own provides Content contributors a way to
@@ -46,7 +37,7 @@ Contributors.  Basically, putting all of the content needs of a user in one
 place.
 
 ----
-1.1  Use Case
+### 1.1  Use Case
 
 Drupal provides a great framework for building functionality.  Workbench helps
 harness content-focused features in one unified user interface.  The goal
@@ -66,7 +57,7 @@ content and provide editorial workflow so that only the correct content is
 published.
 
 ----
-2.  Installation
+## 2.  Installation
 
 Views is required in order to install Workbench.
 
@@ -74,7 +65,7 @@ Install the module and enable it according to Drupal standards.
 
 
 ----
-3.  Permissions
+## 3.  Permissions
 
 Once a user role has access to create content, Workbench becomes
 immediately useful.
@@ -114,19 +105,19 @@ Workbench Permissions
  -- Access My Workbench
 
 ----
-4.  Configuration
+## 4.  Configuration
 
 Workbench does not have any Configuration settings.  Additional Workbench
 modules have their own configuration.
 
 ----
-5.  Using the module
+## 5.  Using the module
 
 As an Administrator or a user with Access My Workbench permissions, you will
 see My Workbench in the toolbar to the right of the Home icon.
 
 ----
-5.1  My Content
+### 5.1  My Content
 On the My Content tab, you can see three areas:
 
  - My Profile
@@ -154,7 +145,7 @@ Each item in the list links to the full content or you can click edit to
 start editing.
 
 ----
-5.2  Create Content
+### 5.2  Create Content
 
 Click the Create Content tab to view a list of types of content that you can
 create.  Remember, we're dealing with Entities now.  Initially, Workbench
@@ -165,7 +156,7 @@ Click the type of content you want to add, then follow the usual procedure for
 adding content.
 
 ----
-6.  Troubleshooting
+## 6.  Troubleshooting
 
 Some helpful tips.
 
@@ -177,18 +168,18 @@ Be sure your user role has permission to create content.  Without those
 permissions, Workbench will only give you access to your user account.
 
 ----
-7.  Developer notes
+## 7.  Developer notes
 
 The following section documents technical details of interest to developers.
 
 ----
-7.1   API documentation
+### 7.1   API documentation
 
 Workbench does not offer a generic API.  Please check the other
 Workbench modules like Workbench Access for descriptions of their APIs.
 
 ----
-7.2   Database schema
+### 7.2   Database schema
 
 Workbench does not create any tables during installation.  Other Workbench
 modules like Workbench Access and Workbench Moderation create tables.
@@ -196,14 +187,14 @@ Please review each module's README.txt file to learn more about schema
 changes.
 
 ----
-7.3   Views integration
+### 7.3   Views integration
 
 Workbench creates several base views for the My Content tab.  Other
 Workbench modules further alter these views.  You can alter the views
 via Views UI as well.
 
 ----
-8.  Feature roadmap
+## 8.  Feature roadmap
 
  -- integrate workflow module as an alternative to workbench_moderation
  -- publish permissions per content type
